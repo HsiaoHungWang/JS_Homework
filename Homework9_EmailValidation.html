@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation</title>
+</head>
+
+<body>
+    <input type="email" placeholder="請輸入電子郵件" id="inputMail">
+    <input type="button" value="檢查" id="buttonCheck">
+    <span id="spanResult"></span>
+
+    <script type="module">
+        import { emailCheck } from './scripts/homework.js';
+        const btnCheck = document.querySelector('#buttonCheck');
+        btnCheck.addEventListener('click', () => {
+            const inpMail = document.querySelector('#inputMail');
+            const spnResult = document.querySelector('#spanResult');
+            let errorMessage = "電子郵件格式錯誤";
+            if (emailCheck(inpMail.value)) {
+                errorMessage = "電子郵件格式正確";
+            }
+            spnResult.textContent = errorMessage;
+
+        })
+    </script>
+</body>
+
+</html>

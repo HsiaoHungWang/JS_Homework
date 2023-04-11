@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #table99 {
+            border: 1px solid green;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        #table99 td {
+            border-right: 1px solid green;
+
+            padding: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="產生九九乘法表" id="button1">
+    <div id="div1"></div>
+
+    <script type="module">
+        import { Ninenine } from './scripts/homework.js';
+        const btn = document.querySelector('#button1');
+        btn.addEventListener('click', () => {
+            const myDiv = document.querySelector('#div1');
+            myDiv.innerHTML = Ninenine();
+        })
+    </script>
+</body>
+
+</html>

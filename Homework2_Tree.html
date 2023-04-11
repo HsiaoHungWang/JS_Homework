@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Tree</title>
+</head>
+
+<body>
+    樹葉：<input type="text" id="text1"> <br>
+    樹幹：<input type="text" id="text2"> <br>
+    <input type="button" value="Drawing" id="button1">
+    <div id="div1"></div>
+    <script type="module">
+        import { treeDrawing } from './scripts/homework.js';
+        const btn = document.querySelector('#button1');
+        const txtNum1 = document.querySelector('#text1');
+        const txtNum2 = document.querySelector('#text2');
+        const divWhiteboard = document.querySelector('#div1');
+
+        btn.addEventListener('click', () => {
+            divWhiteboard.innerHTML = treeDrawing(parseInt(txtNum1.value), parseInt(txtNum2.value));
+        })
+    </script>
+</body>
+
+</html>

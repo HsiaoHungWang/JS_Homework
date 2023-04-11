@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Convert</title>
+</head>
+
+<body>
+    <select id="selectType">
+        <option value="C">攝氏</option>spanResult
+        <option value="F">華氏</option>
+    </select>
+    <input type="text" placeholder="請輸入攝氏溫度" id="textTemperature">
+    <input type="button" id="buttonConvert" value="轉換">
+    <span id="spanResult"></span>
+
+    <script type="module">
+        import { temperatureConvert } from './scripts/homework.js';
+
+        const btnConvert = document.querySelector('#buttonConvert');
+        const selType = document.querySelector('#selectType');
+        const txtTemp = document.querySelector('#textTemperature');
+
+
+        //切換文字輸入方塊中的提示文字
+        selType.addEventListener('change', () => {
+
+            let message = "請輸入攝氏溫度";
+            if (selType.value === "F") {
+                message = '請輸入華氏溫度';
+            }
+            txtTemp.setAttribute('placeholder', message)
+        })
+
+        btnConvert.addEventListener('click', () => {
+            const spnResult = document.querySelector('#spanResult');
+            const temp = temperatureConvert(txtTemp.value, selType.value);
+            spnResult.textContent = selType.value === "F" ? `攝氏溫度為 ${temp}` : `華氏溫度為 ${temp}`;
+        })
+
+        // function changeType(temp) {
+        //     temp = temp === "C" ? "F" : "C";
+        //     return temp;
+        // }
+    </script>
+</body>
+
+</html>

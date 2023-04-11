@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leap Year</title>
+</head>
+
+<body>
+    <div>
+        <p> 如何判斷年份是否為閏年</p>
+        <p> 西元年份除以4不可整除，為平年。</p>
+        <p> 西元年份除以4可整除，且除以100不可整除，為閏年。</p>
+        <p>西元年份除以100可整除，且除以400不可整除，為平年</p>
+        <p> 西元年份除以400可整除，為閏年。</p>
+    </div>
+    <hr />
+    <input type="text" id="text1" placeholder="請輸入西元年">
+    <span id="span1"></span>
+
+    <script type="module">
+        import { checkLeapYear } from './scripts/homework.js';
+        const txt = document.getElementById("text1");
+        txt.addEventListener('keydown', (event) => {
+            const mySpan = document.getElementById("span1");
+            if (event.keyCode == 13) {
+                const year = txt.value;
+                mySpan.innerHTML = `${year} 為 ${checkLeapYear(year)}`;
+            }
+
+        })
+    </script>
+</body>
+
+</html>

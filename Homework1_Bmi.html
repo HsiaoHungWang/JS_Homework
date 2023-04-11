@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+</head>
+
+<body>
+    <div>
+        <h3>作業說明</h3>
+        <p> BMI = 體重(公斤)/身高(公尺)的平方 </p>
+        <p> BMI ＜ 18.5：過輕</p>
+        <p> 18.5≦BMI＜24：正常</p>
+        <p> 24≦BMI＜27：過重</p>
+        <p> 27≦BMI＜30：輕度肥胖</p>
+        <p> 30≦BMI＜35：中度肥胖</p>
+        <p> BMI≧35：重度肥胖</p>
+    </div>
+    <hr>
+    身高(公分)：<input id="Text1" type="text" size="5" /><br />
+    體重(公斤)：<input id="Text2" type="text" size="5" /><br />
+    <input id="Button1" type="button" value="計算" />
+    <input id="Text3" type="text" size="12" />
+    <span id="span1"></span>
+
+    <script type="module">
+        import { bmiCalc } from './scripts/homework.js';
+        const btn = document.getElementById("Button1");
+        btn.addEventListener('click', () => {
+            const h = parseFloat(document.getElementById("Text1").value) / 100;
+            const w = parseFloat(document.getElementById("Text2").value);
+
+            const result1 = document.getElementById("span1");
+
+            const result2 = document.getElementById("Text3");
+            console.log(h);
+            console.log(w);
+            const [r, strMessage] = bmiCalc(h, w);
+            result1.innerHTML = strMessage;
+            result2.value = r;
+        })
+
+
+    </script>
+</body>
+
+</html>

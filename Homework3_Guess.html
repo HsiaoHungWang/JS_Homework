@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Number</title>
+</head>
+
+<body>
+    <input type="button" value="猜數字遊戲" id="button1">
+
+    <script type="module">
+        import { guessNumber } from '../scripts/homework.js';
+        document.querySelector('#button1').addEventListener('click', () => {
+            //Math.floor() 函式會回傳小於等於所給數字的最大整數。
+            const theNumber = Math.floor(Math.random() * 100);
+            alert(theNumber);
+            guessNumber(theNumber);
+        })
+
+    </script>
+</body>
+
+</html>

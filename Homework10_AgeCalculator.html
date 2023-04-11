@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+</head>
+
+<body>
+    請輸入生日：<input type="date" id="inputDate" value="2000-01-01">
+    <input type="button" value="計算生日" id="buttonCalc">
+    <span id="spanResult"></span>
+
+    <script type="module">
+        import { ageCalc } from './scripts/homework.js';
+        const btnCalc = document.querySelector('#buttonCalc');
+        btnCalc.addEventListener('click', () => {
+            const inpDate = document.querySelector('#inputDate');
+
+            const spnResult = document.querySelector('#spanResult');
+            spnResult.textContent = `${ageCalc(inpDate.value)} 歲`;
+        })
+    </script>
+</body>
+
+</html>
